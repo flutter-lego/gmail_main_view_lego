@@ -4,7 +4,7 @@
 [![](https://img.shields.io/badge/DISCORD-JOIN%20SERVER-5663F7?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/zXXHvAXCug)
 [![](https://img.shields.io/badge/KakaoTalk-Join%20Room-FEE500?style=for-the-badge&logo=kakao)](https://open.kakao.com/o/gEwrffbg)
 # gmail_main_view_lego
-[//]: # (<img src="https://github.com/user-attachments/assets/e7629537-915f-4255-aaba-d409e7c0dc30" width="200" alt="toss_intro_page_lego">)
+<img src="https://github.com/juneview-songdo/gmail_main_view/assets/21379657/21d331f4-edce-48e4-85a2-c15b247260bf" width="200" alt="toss_intro_page_lego">
 
 ## Installation
 1. please enter the following command in the terminal to install the CLI:
