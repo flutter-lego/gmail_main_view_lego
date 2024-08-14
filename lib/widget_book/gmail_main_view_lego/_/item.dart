@@ -4,24 +4,24 @@ import 'package:styled_widget/styled_widget.dart';
 class ItemView extends StatefulWidget {
   ItemView(
       {super.key,
-        required this.useravatar,
-        required this.avatarcolor,
+        required this.userAvatar,
+        required this.avatarColor,
         required this.username,
         required this.subject,
         required this.body,
         required this.starred,
-        required this.timeago,
+        required this.timeAgo,
         required this.seen,
         required this.file,
         required this.filename});
 
-  final String? useravatar;
-  final Color? avatarcolor;
+  final String? userAvatar;
+  final Color? avatarColor;
   final String username;
   final String subject;
   final String body;
   final bool starred;
-  final String timeago;
+  final String timeAgo;
   final bool seen;
   final bool file;
   final String filename;
@@ -40,18 +40,18 @@ class _ItemViewState extends State<ItemView> {
           padding: EdgeInsets.only(left: 10, right: 10, top: 15),
           child: Row(
             children: <Widget>[
-              widget.useravatar != null
+              widget.userAvatar != null
                   ? Container(
                 padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: CircleAvatar(
                   radius: 25.0,
-                  backgroundImage: NetworkImage(widget.useravatar!),
+                  backgroundImage: AssetImage(widget.userAvatar!),
                 ),
               )
                   : Container(
                 padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: CircleAvatar(
-                  backgroundColor: widget.avatarcolor,
+                  backgroundColor: widget.avatarColor,
                   radius: 25.0,
                   child: Text(
                     widget.username[0],
@@ -68,46 +68,40 @@ class _ItemViewState extends State<ItemView> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Container(
-                        child: Text(
-                          widget.username ?? "Unknow user",
-                          style: Theme.of(context)
-                              .textTheme
-                              .displayMedium!
-                              .copyWith(
-                              fontSize: 16.0,
-                              color: Colors.grey[800],
-                              fontWeight: widget.seen
-                                  ? FontWeight.normal
-                                  : FontWeight.bold),
-                        ),
-                      ),
-                      Container(
-                        child: Text(
-                          widget.subject,
-                          maxLines: 1,
-                          style:
-                          Theme.of(context).textTheme.bodyMedium!.copyWith(
-                            fontSize: 14.0,
+                      Text(
+                        widget.username ?? "Unknow user",
+                        style: Theme.of(context)
+                            .textTheme
+                            .displayMedium!
+                            .copyWith(
+                            fontSize: 16.0,
+                            color: Colors.grey[800],
                             fontWeight: widget.seen
                                 ? FontWeight.normal
-                                : FontWeight.bold,
-                            color: widget.seen
-                                ? Colors.grey
-                                : Colors.grey[800],
-                          ),
+                                : FontWeight.bold),
+                      ),
+                      Text(
+                        widget.subject,
+                        maxLines: 1,
+                        style:
+                        Theme.of(context).textTheme.bodyMedium!.copyWith(
+                          fontSize: 14.0,
+                          fontWeight: widget.seen
+                              ? FontWeight.normal
+                              : FontWeight.bold,
+                          color: widget.seen
+                              ? Colors.grey
+                              : Colors.grey[800],
                         ),
                       ),
-                      Container(
-                        child: Text(
-                          widget.body,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style:
-                          Theme.of(context).textTheme.bodyMedium!.copyWith(
-                            fontSize: 14.0,
-                            color: Colors.grey,
-                          ),
+                      Text(
+                        widget.body,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style:
+                        Theme.of(context).textTheme.bodyMedium!.copyWith(
+                          fontSize: 14.0,
+                          color: Colors.grey,
                         ),
                       ),
                       widget.file
@@ -132,11 +126,13 @@ class _ItemViewState extends State<ItemView> {
                               SizedBox(
                                 width: 10,
                               ),
-                              Text(
-                                widget.filename,
-                                maxLines: 1,
-                                style: TextStyle(color: Colors.grey[700]),
-                                overflow: TextOverflow.ellipsis,
+                              Expanded(
+                                child: Text(
+                                  widget.filename,
+                                  maxLines: 1,
+                                  style: TextStyle(color: Colors.grey[700]),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               )
                             ],
                           ),
@@ -152,7 +148,7 @@ class _ItemViewState extends State<ItemView> {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
                   Text(
-                    widget.timeago,
+                    widget.timeAgo,
                     style: TextStyle(
                         fontWeight:
                         widget.seen ? FontWeight.normal : FontWeight.bold),
@@ -176,14 +172,14 @@ main() async {
   return runApp(MaterialApp(
     home: Scaffold(
       body: ItemView(
-          useravatar:
-          "https://qph.fs.quoracdn.net/main-qimg-11ef692748351829b4629683eff21100.webp",
-          avatarcolor: Colors.blue,
+          userAvatar:
+          "assets/lego/gmail_main_view_lego/p1.jpg",
+          avatarColor: Colors.blue,
           username: "John Doe",
           subject: "Hello",
           body: "Hello, how are you?",
           starred: true,
-          timeago: "2 hours ago",
+          timeAgo: "2 hours ago",
           seen: false,
           file: true,
           filename: "image.jpg").center(),
